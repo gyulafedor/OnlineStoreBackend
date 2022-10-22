@@ -1,7 +1,9 @@
 package com.example.gyula.fedor.OnlineStore.user;
 
+import com.example.gyula.fedor.OnlineStore.cartElements.CartElements;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+
 @Entity
 public class Users {
 
@@ -48,7 +50,7 @@ public class Users {
     @Override
     public String toString() {
         return "Users{" +
-                " email='" + email + '\'' +
+                "email='" + email + '\'' +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 '}';

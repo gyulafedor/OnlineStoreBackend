@@ -1,9 +1,9 @@
 package com.example.gyula.fedor.OnlineStore.cartElements;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.gyula.fedor.OnlineStore.user.Users;
+import jakarta.persistence.*;
+import net.minidev.json.annotate.JsonIgnore;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class CartElements {
@@ -13,15 +13,17 @@ public class CartElements {
     private long id;
     private String userEmail;
     private String gameName;
+    private String gameDescription;
     private long gamePrice;
 
     public CartElements() {
     }
 
-    public CartElements(long id, String userEmail, String gameName, long gamePrice) {
+    public CartElements(long id, String userEmail, String gameName, String gameDescription, long gamePrice) {
         this.id = id;
         this.userEmail = userEmail;
         this.gameName = gameName;
+        this.gameDescription = gameDescription;
         this.gamePrice = gamePrice;
     }
 
@@ -49,6 +51,14 @@ public class CartElements {
         this.gameName = gameName;
     }
 
+    public String getGameDescription() {
+        return gameDescription;
+    }
+
+    public void setGameDescription(String gameDescription) {
+        this.gameDescription = gameDescription;
+    }
+
     public long getGamePrice() {
         return gamePrice;
     }
@@ -63,7 +73,8 @@ public class CartElements {
                 "id=" + id +
                 ", userEmail='" + userEmail + '\'' +
                 ", gameName='" + gameName + '\'' +
-                ", gamePrice='" + gamePrice + '\'' +
+                ", gameDescription='" + gameDescription + '\'' +
+                ", gamePrice=" + gamePrice +
                 '}';
     }
 }
